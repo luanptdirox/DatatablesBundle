@@ -353,7 +353,7 @@ abstract class AbstractFilter implements FilterInterface
 
         // change search by lowercase letters
         $searchField = 'LOWER(' .$searchField . ')';
-        $searchValue = strtolower($searchValue);
+        $searchValue = mb_strtolower($searchValue, 'UTF-8');
 
         switch ($searchType) {
             case 'like':
