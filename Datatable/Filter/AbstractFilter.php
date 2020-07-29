@@ -351,6 +351,10 @@ abstract class AbstractFilter implements FilterInterface
                 ;
         }
 
+        // change search by lowercase letters
+        $searchField = 'LOWER(' .$searchField . ')';
+        $searchValue = strtolower($searchValue);
+
         switch ($searchType) {
             case 'like':
                 $expr->add($qb->expr()->like($searchField, '?'.$parameterCounter));
